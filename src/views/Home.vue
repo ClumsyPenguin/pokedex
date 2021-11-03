@@ -1,23 +1,31 @@
 <template>
   <div class="home">
-    <p>Pokemon</p>
-    <Pokemon :pokemon="pokemon" />
+    <div v-if="isLoaded">
+      <pokemon-info :pokemon="pokemon" />
+    </div>
+    <div v-else>
+      <span>Data is loading...</span>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import PokemonClass from "@/models/Pokemon.model";
 import { Options, Vue } from "vue-class-component";
-import Pokemon from "../components/Pokemon.vue"
+import PokemonInfo from "../components/Pokemon.vue";
+import PokemonService from "../services/Pokemon.service";
 
 @Options({
   components: {
-    Pokemon
+    PokemonInfo,
   },
 })
 export default class Home extends Vue {
-  private pokemon : Pokemon = new Pokemon();
-  mounted() {
-    
+  public pokemon: PokemonClass;
+  private isLoaded = false;
+  async mounted() {
+    this.pokemon = await PokemonService.randomPokemon();
+    this.isLoaded = true;
   }
 }
 </script>

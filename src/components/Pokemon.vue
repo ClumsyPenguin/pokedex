@@ -1,22 +1,21 @@
 <template>
-    <h1></h1>
+  <h1>{{ pokemon.name }}</h1>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { defineComponent } from "vue";
 import PokemonClass from "../models/Pokemon.model";
 
-@Options({
+
+export default defineComponent({
+  name: "Pokemon",
   props: {
     pokemon: {
       type: Object as () => PokemonClass,
-      required: true
-    }
+      required: true,
+    },
   },
-})
-export default class PokemonInfo extends Vue {
-  
-}
+   components: {
+    }
+});
 </script>
-
-</style>
