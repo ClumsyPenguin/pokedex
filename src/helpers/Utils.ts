@@ -1,4 +1,3 @@
-import axios from "axios";
 import pokemonJson from "../pokemon.json";
 
 export default class Utils {

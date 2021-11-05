@@ -25,6 +25,7 @@ export default class Home extends Vue {
   private isLoaded = false;
   async mounted() {
     this.pokemon = await PokemonService.randomPokemon();
+    console.log(this.pokemon);
     this.isLoaded = true;
   }
 }
