@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <search-bar/>
     <div v-if="isLoaded">
       <pokemon-info :pokemon="pokemon" />
     </div>
@@ -13,11 +14,13 @@
 import PokemonClass from "@/models/Pokemon.model";
 import { Options, Vue } from "vue-class-component";
 import PokemonInfo from "../components/Pokemon.vue";
+import SearchBar from "../components/SearchBar.vue"
 import PokemonService from "../services/Pokemon.service";
 
 @Options({
   components: {
     PokemonInfo,
+    SearchBar,
   },
 })
 export default class Home extends Vue {

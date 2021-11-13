@@ -1,6 +1,6 @@
 <template>
   <n-space justify="center">
-    <n-card>
+    <n-card class="card-pokemon">
       <h1>{{ pokemon.name }}</h1>
       <img :src="pokemon.sprites.front_default" height="200" width="200"/>
       <n-card title="Stats">
@@ -32,3 +32,8 @@ export default defineComponent({
   }
 });
 </script>
+<style>
+.card-pokemon{
+  width: 60em;
+}
+</style>
